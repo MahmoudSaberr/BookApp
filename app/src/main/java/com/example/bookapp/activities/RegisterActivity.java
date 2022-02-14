@@ -1,6 +1,5 @@
-package com.example.bookapp;
+package com.example.bookapp.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -76,6 +75,9 @@ public class RegisterActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(name))
         {// name edit text is empty, must enter name
             Toast.makeText(this, "Enter your name...!", Toast.LENGTH_SHORT).show();
+        }
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(this, "Enter your email...!", Toast.LENGTH_SHORT).show();
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
         {// email is either no entered or email pattern is invalid, don't allow to continue in that case

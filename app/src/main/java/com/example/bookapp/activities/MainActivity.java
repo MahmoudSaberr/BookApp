@@ -1,4 +1,4 @@
-package com.example.bookapp;
+package com.example.bookapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         binding.mainLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         binding.mainSkipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,DashboardUserActivity.class));
+                startActivity(new Intent(MainActivity.this, DashboardUserActivity.class));
             }
         });
 

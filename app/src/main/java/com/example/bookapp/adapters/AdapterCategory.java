@@ -3,6 +3,7 @@ package com.example.bookapp.adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +16,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookapp.activities.PdfListAdminActivity;
 import com.example.bookapp.filters.FilterCategory;
 import com.example.bookapp.models.ModelCategory;
 import com.example.bookapp.databinding.RowCategoryBinding;
+import com.example.bookapp.models.ModelPdf;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -89,12 +95,23 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
             }
         });
 
+        //handle item click, go to PdfListAdminActivity also pass pdf category and category id
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PdfListAdminActivity.class);
+                intent.putExtra("categoryId",id);
+                intent.putExtra("categoryTitle",category);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void DeleteCategory(ModelCategory model, HolderCategory holder) {
 
         //get id of category to delete
         String id = model.getId();
+
         // DB > Categories > categoryId
         DatabaseReference categoriesRef = FirebaseDatabase.getInstance().getReference("Categories");
         categoriesRef.child(id)
@@ -103,6 +120,29 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Holder
                     @Override
                     public void onSuccess(Void aVoid) {
                         //delete Successfully
+
+                        // i want to delete all books into this category
+                        DatabaseReference booksRef = FirebaseDatabase.getInstance().getReference("Books");
+                        booksRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                for (DataSnapshot ds : snapshot.getChildren()) {
+                                    //get data
+                                    ModelPdf modelPdf =ds.getValue(ModelPdf.class);
+
+                                    assert modelPdf != null;
+                                    if (id.equals(modelPdf.getCategoryId())) {
+                                        ds.getRef().removeValue();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                         Toast.makeText(context, "Successfully Deleted...", Toast.LENGTH_SHORT).show();
                     }
                 })

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".RegisterActivity">
+    tools:context=".activities.RegisterActivity">
 
     <RelativeLayout
         android:id="@+id/register_toolbar_rl"
@@ -129,7 +129,6 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"/>
 
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--Confirm Password-->
@@ -151,11 +150,11 @@
                     android:drawableStart="@drawable/ic_lock_gray"
                     android:drawableLeft="@drawable/ic_lock_gray"
                     android:drawablePadding="10dp"
-                    android:hint="Password"
+                    android:hint="Confirm Password"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/gray01"/>
+                    android:textColorHint="@color/gray01" />
 
 
             </com.google.android.material.textfield.TextInputLayout>

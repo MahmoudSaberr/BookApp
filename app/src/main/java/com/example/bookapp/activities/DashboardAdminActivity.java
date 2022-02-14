@@ -1,4 +1,4 @@
-package com.example.bookapp;
+package com.example.bookapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,7 +81,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         binding.daAddCategoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DashboardAdminActivity.this,CategoryAddActivity.class));
+                startActivity(new Intent(DashboardAdminActivity.this, CategoryAddActivity.class));
             }
         });
 
@@ -89,7 +89,15 @@ public class DashboardAdminActivity extends AppCompatActivity {
         binding.daAddPdfFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DashboardAdminActivity.this,PdfAddActivity.class));
+                startActivity(new Intent(DashboardAdminActivity.this, PdfAddActivity.class));
+            }
+        });
+
+        //handle click, open profile
+        binding.daProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardAdminActivity.this,ProfileActivity.class));
             }
         });
 
@@ -135,7 +143,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         if (firebaseUser == null)
         {
             //not logged in, go to main activity
-            startActivity(new Intent(DashboardAdminActivity.this,MainActivity.class));
+            startActivity(new Intent(DashboardAdminActivity.this, MainActivity.class));
             finish();
         }
         else

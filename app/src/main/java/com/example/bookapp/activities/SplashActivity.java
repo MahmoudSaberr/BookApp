@@ -1,4 +1,4 @@
-package com.example.bookapp;
+package com.example.bookapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.bookapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
         if (firebaseUser == null)
         {//user not logged in, start main activity
             //start Main screen
-            startActivity(new Intent(SplashActivity.this,MainActivity.class));
+            startActivity(new Intent(SplashActivity.this, MainActivity.class));
             finish(); // finish this activity
 
         }
@@ -63,12 +64,12 @@ public class SplashActivity extends AppCompatActivity {
                             if (userType.equals("user"))
                             {//this is simple user, open user dashboard
 
-                                startActivity(new Intent(SplashActivity.this,DashboardUserActivity.class));
+                                startActivity(new Intent(SplashActivity.this, DashboardUserActivity.class));
                                 finish();
                             }
                             else if (userType.equals("admin"))
                             {//this is admin, open admin dashboard
-                                startActivity(new Intent(SplashActivity.this,DashboardAdminActivity.class));
+                                startActivity(new Intent(SplashActivity.this, DashboardAdminActivity.class));
                                 finish();
                             }
                         }

@@ -3,24 +3,35 @@
     package="com.example.bookapp">
     <!-- All Required Permission -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
-        <activity android:name=".PdfListAdminActivity"></activity>
-        <activity android:name=".PdfAddActivity" />
-        <activity android:name=".CategoryAddActivity" />
-        <activity android:name=".DashboardAdminActivity" />
-        <activity android:name=".DashboardUserActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activities.ForgetPasswordActivity"></activity>
+        <activity android:name=".activities.ProfileEditActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.PdfViewActivity" />
+        <activity android:name=".activities.PdfDetailActivity" />
+        <activity android:name=".activities.PdfEditActivity" />
+        <activity android:name=".activities.PdfListAdminActivity" />
+        <activity android:name=".activities.PdfAddActivity" />
+        <activity android:name=".activities.CategoryAddActivity" />
+        <activity android:name=".activities.DashboardAdminActivity" />
+        <activity android:name=".activities.DashboardUserActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

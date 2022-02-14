@@ -1,4 +1,4 @@
-package com.example.bookapp;
+package com.example.bookapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -125,6 +125,7 @@ public class PdfAddActivity extends AppCompatActivity {
         else {
             //all data is valid, can upload now
             UploadPdfToStorage();
+            startActivity(new Intent(PdfAddActivity.this, DashboardAdminActivity.class));
         }
     }
 
@@ -186,6 +187,8 @@ public class PdfAddActivity extends AppCompatActivity {
         pdfInfoMap.put("categoryId",""+selectedCategoryId);
         pdfInfoMap.put("url",""+uploadPdfUrl);
         pdfInfoMap.put("timestamp",""+timestamp);
+        pdfInfoMap.put("viewsCount",0);
+        pdfInfoMap.put("downloadsCount",0);
 
         //db reference: db > Books
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Books");

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back01"
-    tools:context=".DashboardAdminActivity">
+    tools:context=".activities.DashboardAdminActivity">
 
     <!--toolbar-->
     <RelativeLayout
@@ -13,6 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
         android:background="@drawable/shape_toolbar02">
+
+        <ImageButton
+            android:id="@+id/da_profile_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_person_white"
+            android:background="@android:color/transparent"/>
 
         <TextView
             android:id="@+id/da_title_tv"
@@ -74,6 +83,8 @@
         android:layout_below="@+id/da_search_et"
         android:layout_above="@+id/da_bottom_ll"
         android:layout_margin="5dp"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
         tools:listitem="@layout/row_category"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

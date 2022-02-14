@@ -3,15 +3,17 @@ package com.example.bookapp.models;
 public class ModelPdf {
 
     //make sure to user same spellings for model variables as   in firebase
-    String uid, id, title, description, categoryId, url;
-    long timestamp;
+    String uid, id, title, description, categoryId, url,timestamp;
+    long viewsCount , downloadsCount;
+    boolean favorite;
 
     //constructor empty required for firebase
     public ModelPdf() {
     }
 
     // parametrized constructor
-    public ModelPdf(String uid, String id, String title, String description, String categoryId, String url, Long timestamp) {
+
+    public ModelPdf(String uid, String id, String title, String description, String categoryId, String url, String timestamp, long viewsCount, long downloadsCount, boolean favorite) {
         this.uid = uid;
         this.id = id;
         this.title = title;
@@ -19,9 +21,14 @@ public class ModelPdf {
         this.categoryId = categoryId;
         this.url = url;
         this.timestamp = timestamp;
+        this.viewsCount = viewsCount;
+        this.downloadsCount = downloadsCount;
+        this.favorite = favorite;
     }
 
+
     /*-----Getters/Setters------*/
+
     public String getUid() {
         return uid;
     }
@@ -70,11 +77,35 @@ public class ModelPdf {
         this.url = url;
     }
 
-    public Long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public long getViewsCount() {
+        return viewsCount;
+    }
+
+    public void setViewsCount(long viewsCount) {
+        this.viewsCount = viewsCount;
+    }
+
+    public long getDownloadsCount() {
+        return downloadsCount;
+    }
+
+    public void setDownloadsCount(long downloadsCount) {
+        this.downloadsCount = downloadsCount;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }

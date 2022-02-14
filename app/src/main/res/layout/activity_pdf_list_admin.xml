@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PdfListAdminActivity"
+    tools:context=".activities.PdfListAdminActivity"
     android:background="@drawable/back01">
 
     <!--toolbar-->
@@ -72,6 +72,8 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:layout_below="@+id/pdf_list_search_et"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
         tools:listitem="@layout/row_pdf_admin"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
