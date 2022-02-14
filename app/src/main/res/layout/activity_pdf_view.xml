@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.PdfViewActivity">
+
+    <!--toolbar-->
+    <RelativeLayout
+        android:id="@+id/pdf_view_toolbar_rl"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:background="@drawable/shape_toolbar02">
+        <!--back button-->
+        <ImageButton
+            android:id="@+id/pdf_view_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_back_white"
+            android:background="@android:color/transparent"/>
+
+        <!--toolbar title-->
+        <TextView
+            android:id="@+id/pdf_view_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Read Book"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <!--toolbar subtitle: e.g. page number-->
+        <TextView
+            android:id="@+id/pdf_view_subtitle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pdf_view_title_tv"
+            android:layout_centerHorizontal="true"
+            android:text="N/N"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+
+    </RelativeLayout>
+
+    <!--Pdf View-->
+    <com.github.barteksc.pdfviewer.PDFView
+        android:id="@+id/pdf_view_pdfView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/pdf_view_toolbar_rl"/>
+
+    <!--ProgressBar: Show while pdf/book is loading from firebase-->
+    <ProgressBar
+        android:id="@+id/pdf_view_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

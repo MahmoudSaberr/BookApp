@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProfileActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/back02"/>
+
+    <RelativeLayout
+        android:id="@+id/profile_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar02">
+
+        <ImageButton
+            android:id="@+id/profile_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_white"/>
+
+        <TextView
+            android:id="@+id/profile_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Profile"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/profile_edit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_edit_white"
+            android:background="@android:color/transparent" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/shape_rect01"/>
+
+    <!--Shapeable image view with rounded corners for profile image-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profile_iv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:background="@color/white"
+        android:src="@drawable/ic_person_gray"
+        app:shapeAppearance="@style/styleRoundedCornersImage"/>
+
+    <TextView
+        android:id="@+id/profile_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_iv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Full Name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/profile_email_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_name_tv"
+        android:layout_centerHorizontal="true"
+        android:text="abc@example.com"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/profile_details_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/profile_email_tv"
+        android:layout_marginTop="8dp">
+
+        <!--Account-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Account"
+                 android:textColor="@color/black"
+                 android:textStyle="bold"
+                android:textSize="12sp"/>
+             <TextView
+                 android:id="@+id/profile_account_tv"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="User"
+                 android:textColor="@color/black"
+                 android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!--Member Science-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+             <TextView
+                 android:id="@+id/profile_member_date_tv"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="12/12/2021"
+                 android:textColor="@color/black"
+                 android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!--Favorite books count-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite Books"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+             <TextView
+                 android:id="@+id/profile_favorite_books_count_tv"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="150"
+                 android:textColor="@color/black"
+                 android:textSize="12sp"/>
+        </LinearLayout>
+
+        <!--Account Status-->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Status"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+             <TextView
+                 android:id="@+id/profile_acc_status_tv"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Not Verified"
+                 android:textColor="@color/black"
+                 android:textSize="12sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/profile_details_ll"
+        android:background="@color/gray03"/>
+
+    <TextView
+        android:id="@+id/profile_favorite_books_label_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1"
+        android:padding="5dp"
+        android:text="Favorite Books"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/profile_favorite_books_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/profile_favorite_books_label_tv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
+        tools:listitem="@layout/row_pdf_favorite"/>
+
+</RelativeLayout>
